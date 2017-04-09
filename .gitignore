@@ -4,6 +4,12 @@
 *.o
 *.obj
 
+# Folder
+Debug
+Release
+.vs
+*.db
+
 # Precompiled Headers
 *.gch
 *.pch
