@@ -64,7 +64,7 @@
     <PostBuildEvent>
       <Command>xcopy /Y $(SolutionDir)..\lib\SDL2\bin $(OutDir)
 xcopy /Y $(SolutionDir)..\lib\SDL2_ttf\bin $(OutDir)
-xcopy /Y $(ProjectDir)Data $(OutDir)</Command>
+xcopy /Y /I $(ProjectDir)Data $(OutDir)\Data</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -78,7 +78,7 @@ xcopy /Y $(ProjectDir)Data $(OutDir)</Command>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
@@ -86,7 +86,7 @@ xcopy /Y $(ProjectDir)Data $(OutDir)</Command>
     <PostBuildEvent>
       <Command>xcopy /Y $(SolutionDir)..\lib\SDL2\bin $(OutDir)
 xcopy /Y $(SolutionDir)..\lib\SDL2_ttf\bin $(OutDir)
-xcopy /Y $(ProjectDir)Data $(OutDir)</Command>
+xcopy /Y /I $(ProjectDir)Data $(OutDir)\Data</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
