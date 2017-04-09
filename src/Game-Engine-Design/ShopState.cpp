@@ -70,7 +70,7 @@ void Store::onEvent(StateManager& state, SDL_Event& event) {
 	if(event.type == SDL_KEYDOWN) {
 		switch(event.key.keysym.sym) {
 			case SDLK_ESCAPE:
-			case SDLK_e: state.SwitchState(g_Map); break;
+			case SDLK_e: state.switchState(g_Map); break;
 			case SDLK_k: BuyItem(STIMULANT); break;
 			case SDLK_c: BuyItem(COMBAT); break;
 			case SDLK_h: BuyItem(HEALTH); break;

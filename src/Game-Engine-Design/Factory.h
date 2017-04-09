@@ -27,7 +27,7 @@ public:
     }
 
     template<class T>
-    T * newObject(string name) 
+    T* newObject(string name) 
     {
         int size = renderObjects.size();
         renderObjects.push_back(new T());
@@ -36,7 +36,7 @@ public:
     }
 
     template<class T>
-    T * newCharacter(string name, PlayerFile * file) 
+    T* newCharacter(string name, PlayerFile * file) 
     {
         int size = renderObjects.size();
         renderObjects.push_back(new T(file));
@@ -45,7 +45,7 @@ public:
     }
 
     template<class T>
-    T * newCharacter(string name, MonsterFile * file) 
+    T* newCharacter(string name, MonsterFile * file) 
     {
         int size = renderObjects.size();
         renderObjects.push_back(new T(file));
@@ -54,9 +54,9 @@ public:
     }
 
     template<class T>
-    T * getObject(string name) 
+    T* getObject(string name) 
     {
-        for (unsigned int i = 0; i < renderName.size(); i++) 
+        for (auto i = 0; i < renderName.size(); i++) 
         {
             if (name == renderName[i]) 
             {
@@ -65,7 +65,7 @@ public:
         }
 
         string message = "Couldnt get object : " + name;
-        game->ExitError(message.c_str());
+        game->exitError(message.c_str());
         return NULL;
     }
 };

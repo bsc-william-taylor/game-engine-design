@@ -106,7 +106,7 @@ xcopy /Y $(ProjectDir)Data $(OutDir)</Command>
     <ClCompile Include="FantasyRogue.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOver.cpp" />
-    <ClCompile Include="GL_Renderer.cpp" />
+    <ClCompile Include="RendererGL.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -141,7 +141,7 @@ xcopy /Y $(ProjectDir)Data $(OutDir)</Command>
     <ClInclude Include="FantasyRogue.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameOver.h" />
-    <ClInclude Include="GL_Renderer.h" />
+    <ClInclude Include="RendererGL.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MainMenu.h" />

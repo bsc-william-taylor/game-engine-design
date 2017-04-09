@@ -22,7 +22,7 @@ StateManager::~StateManager()
     gameStates.clear();
 }
 
-void StateManager::StartFrom(unsigned int position)
+void StateManager::startFrom(unsigned int position)
 {
     if (position < gameStates.size() && position > 0)
     {
@@ -43,16 +43,16 @@ State* StateManager::getCurrentState()
     return curState;
 }
 
-void StateManager::ExitStates()
+void StateManager::exitStates()
 {
     if (game != NULL)
     {
         curState->onExit(*this);
-        game->Exit();
+        game->exit();
     }
 }
 
-void StateManager::SwitchState(unsigned int position)
+void StateManager::switchState(unsigned int position)
 {
     preState = curState;
 
@@ -66,12 +66,12 @@ void StateManager::SwitchState(unsigned int position)
     }
 }
 
-void StateManager::PreviousState()
+void StateManager::previousState()
 {
-    SwitchState(position - 1);
+    switchState(position - 1);
 }
 
-void StateManager::NextState()
+void StateManager::nextState()
 {
-    SwitchState(position + 1);
+    switchState(position + 1);
 }

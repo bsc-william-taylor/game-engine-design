@@ -23,11 +23,11 @@ public:
 
     State* getCurrentState();
 
-    void SwitchState(unsigned int);
-    void StartFrom(unsigned int);
-    void PreviousState();
-    void ExitStates();
-    void NextState();
+    void switchState(unsigned int);
+    void startFrom(unsigned int);
+    void previousState();
+    void exitStates();
+    void nextState();
 
     template<class State>
     State* getState(unsigned int i)
@@ -38,7 +38,7 @@ public:
         }
 
         string message = "Couldnt get state : " + i;
-        game->ExitError(message.c_str());
+        game->exitError(message.c_str());
         return NULL;
     }
 

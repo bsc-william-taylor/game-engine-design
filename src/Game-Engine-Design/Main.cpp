@@ -15,8 +15,8 @@ int RoundUp(float number) {
 // SDL controls main function
 int main(int argc, char * argv[]) {
 	FantasyRogue * Game = new FantasyRogue();
-	Game->Initialise();
-	Game->Start();
+	Game->initialise();
+	Game->start();
 	delete Game;
 	return 0;
 }

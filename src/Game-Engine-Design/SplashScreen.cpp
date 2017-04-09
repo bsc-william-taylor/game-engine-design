@@ -45,15 +45,15 @@ void SplashScreen::onDraw(Renderer& renderer, StateManager& state) {
 
 void SplashScreen::onUpdate(StateManager& state) {
 	// if 3 seconds has passed go to the next state
-	if(timer->Waitfor(3)){
-		state.NextState();
+	if(timer->waitFor(3)){
+		state.nextState();
 	}
 }
 
 void SplashScreen::onEvent(StateManager& state, SDL_Event& event) {
 	// if a key is pressed go to the next state
 	if(event.type == SDL_KEYDOWN || event.type == SDL_KEYUP) {
-		state.NextState();
+		state.nextState();
 	}
 }
 

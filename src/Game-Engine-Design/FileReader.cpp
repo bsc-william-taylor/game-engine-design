@@ -4,88 +4,88 @@
 
 FileReader::FileReader(Game& game, string& filename)
 {
-    ReadFile.open(filename.c_str());
+    readFile.open(filename.c_str());
 
-    if (!ReadFile.is_open())
+    if (!readFile.is_open())
     {
-        ReadFile.close();
-        game.ExitError("Error Loading Game Files Please RE-INSTALL");
+        readFile.close();
+        game.exitError("Error Loading Game Files Please RE-INSTALL");
     }
 
-    Filename = filename;
-    GrabFile();
+    filename = filename;
+    grabFile();
 
-    if (ReadFile.is_open()) 
+    if (readFile.is_open()) 
     {
-        ReadFile.close();
+        readFile.close();
     }
 }
 
 FileReader::~FileReader()
 {
-    PushFile();
+    pushFile();
 }
 
-void FileReader::GrabFile() 
+void FileReader::grabFile() 
 {
-    Comments.clear();
-    Data.clear();
+    commentsData.clear();
+    fileData.clear();
 
-    while (!ReadFile.eof()) 
+    while (!readFile.eof()) 
     {
         string data;
 
-        while (!ReadFile.eof()) 
+        while (!readFile.eof()) 
         {
-            getline(ReadFile, data);
+            getline(readFile, data);
             if (data[0] == '#' || data.empty()) 
             {
-                Comments.push_back(data);
+                commentsData.push_back(data);
             }
             else 
             {
-                Comments.push_back("insert");
+                commentsData.push_back("insert");
                 break;
             }
         };
 
-        Data.push_back(data);
+        fileData.push_back(data);
     }
 }
 
-void FileReader::PushFile() 
+void FileReader::pushFile() 
 {
-    WriteFile.open(Filename.c_str());
+    writeFile.open(filename.c_str());
 
-    for (auto i = 0, z = 0; i < Comments.size(); i++) 
+    for (auto i = 0, z = 0; i < commentsData.size(); i++) 
     {
-        if (Comments[i] != "insert") 
+        if (commentsData[i] != "insert") 
         {
-            WriteFile << Comments[i] + "\n";
+            writeFile << commentsData[i] + "\n";
         }
 
-        if (Comments[i] == "insert") 
+        if (commentsData[i] == "insert") 
         {
-            if (z < Data.size()) 
+            if (z < fileData.size()) 
             {
-                WriteFile << Data[z] + "\n";
+                writeFile << fileData[z] + "\n";
             }
             z++;
         }
     }
 
-    if (WriteFile.is_open()) 
+    if (writeFile.is_open()) 
     {
-        WriteFile.close();
+        writeFile.close();
     }
 }
 
-FileData& FileReader::GrabComments() 
+FileData& FileReader::grabComments() 
 {
-    return Comments;
+    return commentsData;
 }
 
-FileData& FileReader::GrabData() 
+FileData& FileReader::grabData() 
 {
-    return Data;
+    return fileData;
 }

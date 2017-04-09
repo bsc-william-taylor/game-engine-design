@@ -42,16 +42,16 @@ void MainMenu::onEvent(StateManager& state, SDL_Event& sdlevent) {
 	if(sdlevent.type == SDL_KEYDOWN) {
 		switch(sdlevent.key.keysym.sym) {
 			case SDLK_ESCAPE:
-			case SDLK_q: state.ExitStates(); break;
-			case SDLK_r: state.SwitchState(2); break;
-			case SDLK_l: state.SwitchState(3); gameInProgress = true; break;
-			case SDLK_n: state.SwitchState(5); gameInProgress = true; break;
+			case SDLK_q: state.exitStates(); break;
+			case SDLK_r: state.switchState(2); break;
+			case SDLK_l: state.switchState(3); gameInProgress = true; break;
+			case SDLK_n: state.switchState(5); gameInProgress = true; break;
 
 			default:  break;
 		}
 
 		if(gameInProgress && sdlevent.key.keysym.sym == SDLK_c){
-			state.SwitchState(3); 
+			state.switchState(3); 
 		}
 	}
 }

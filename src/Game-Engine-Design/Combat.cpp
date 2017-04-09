@@ -62,10 +62,10 @@ void Combat::onEvent(StateManager& StateManager, SDL_Event& event) {
 			case SDLK_e: {
 				if(playerWin >= 0) {
 					if(playerWin) {
-						StateManager.SwitchState(g_Map); 
+						StateManager.switchState(g_Map); 
 					} else {
 						StateManager.getState<GameOver>(g_GameOver)->setWinner(false);
-						StateManager.SwitchState(g_GameOver); 
+						StateManager.switchState(g_GameOver); 
 					}
 				} break;
 			}
@@ -128,7 +128,7 @@ void Combat::determineVictor(StateManager& StateManager) {
 	// if the monsters health is below 0
 	if(opponent->getStats().Health <= 0) {
 		int temp = previousHealth - player->getStats().Health;
-		player->getStats().Health += RoundUp((float)temp/2); 
+		player->getStats().Health += ceil((float)temp/2); 
 		opponent->DropItem(player);
 		opponent->Kill();
 		playerWin = true;

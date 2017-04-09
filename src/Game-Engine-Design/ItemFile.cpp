@@ -25,8 +25,8 @@ ItemFile::~ItemFile()
 
 void ItemFile::setPosition(int num, Vector<int> position)
 {
-    file->GrabData()[num + ITEM_X] = to_string(position.getX());
-    file->GrabData()[num + ITEM_Y] = to_string(position.getY());
+    file->grabData()[num + ITEM_X] = to_string(position.getX());
+    file->grabData()[num + ITEM_Y] = to_string(position.getY());
 }
 
 Item * ItemFile::getItem(int num)
@@ -60,41 +60,41 @@ Item * ItemFile::getItem(int num)
 
 Vector<int> ItemFile::getItemPosition(int num)
 {
-    int x = atoi(file->GrabData()[num + ITEM_X].c_str());
-    int y = atoi(file->GrabData()[num + ITEM_Y].c_str());
+    int x = atoi(file->grabData()[num + ITEM_X].c_str());
+    int y = atoi(file->grabData()[num + ITEM_Y].c_str());
 
     return Vector<int>(x, y);
 }
 
 void ItemFile::push()
 {
-    file->PushFile();
+    file->pushFile();
 }
 
 void ItemFile::setState(int num, bool state)
 {
-    file->GrabData()[num + CONSUMED] = to_string(state);
+    file->grabData()[num + CONSUMED] = to_string(state);
 }
 
 Vector<int> ItemFile::getItemSize(int num)
 {
-    int w = atoi(file->GrabData()[num + ITEM_W].c_str());
-    int h = atoi(file->GrabData()[num + ITEM_H].c_str());
+    int w = atoi(file->grabData()[num + ITEM_W].c_str());
+    int h = atoi(file->grabData()[num + ITEM_H].c_str());
 
     return Vector<int>(w, h);
 }
 
 bool ItemFile::getItemState(int num)
 {
-    return atoi(file->GrabData()[num + CONSUMED].c_str());
+    return atoi(file->grabData()[num + CONSUMED].c_str());
 }
 
 cstring ItemFile::getItemName(int num)
 {
-    return file->GrabData()[num + ITEM_NAME].c_str();
+    return file->grabData()[num + ITEM_NAME].c_str();
 }
 
 int ItemFile::getItemNumbers()
 {
-    return atoi(file->GrabData()[ITEM_NUM].c_str());
+    return atoi(file->grabData()[ITEM_NUM].c_str());
 }

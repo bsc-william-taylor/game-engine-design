@@ -4,58 +4,58 @@
 Timer::Timer()
 {
     QueryPerformanceFrequency(&freq);
-    WaitBuffer = false;
-    Buffer = false;
+    waitBuffer = false;
+    bufferEnabled = false;
 }
 
 Timer::~Timer()
 {
 }
 
-bool Timer::Waitfor(int seconds)
+bool Timer::waitFor(int seconds)
 {
-    if (!WaitBuffer)
+    if (!waitBuffer)
     {
-        WaitBuffer = true;
-        Clear();
-        QueryPerformanceCounter(&start);
+        waitBuffer = true;
+        clear();
+        QueryPerformanceCounter(&startTime);
     }
 
-    QueryPerformanceCounter(&end);
+    QueryPerformanceCounter(&endTime);
 
-    if (GetTimeInSeconds() >= seconds)
+    if (getTimeInSeconds() >= seconds)
     {
-        WaitBuffer = false;
-        Clear();
+        waitBuffer = false;
+        clear();
         return true;
     }
 
     return false;
 }
 
-void Timer::Clear()
+void Timer::clear()
 {
-    start.QuadPart = NULL;
-    end.QuadPart = NULL;
-    Buffer = false;
+    startTime.QuadPart = NULL;
+    endTime.QuadPart = NULL;
+    bufferEnabled = false;
 }
 
-void Timer::Start()
+void Timer::start()
 {
-    QueryPerformanceCounter(&start);
+    QueryPerformanceCounter(&startTime);
 }
 
-void Timer::End()
+void Timer::end()
 {
-    QueryPerformanceCounter(&end);
+    QueryPerformanceCounter(&endTime);
 }
 
-double Timer::GetTimeInSeconds()
+double Timer::getTimeInSeconds()
 {
-    return(end.QuadPart - start.QuadPart) / (double)freq.QuadPart;
+    return(endTime.QuadPart - startTime.QuadPart) / (double)freq.QuadPart;
 }
 
-double Timer::GetTimeInMilliseconds()
+double Timer::getTimeInMilliseconds()
 {
-    return (1.0e3*(end.QuadPart - start.QuadPart)) / freq.QuadPart;
+    return (1.0e3*(endTime.QuadPart - startTime.QuadPart)) / freq.QuadPart;
 }

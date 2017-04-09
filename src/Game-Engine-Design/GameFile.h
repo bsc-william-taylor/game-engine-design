@@ -22,5 +22,5 @@ public:
 
     cstring getWindowTitle();
 
-    bool DebugEnabled();
+    bool debugEnabled();
 };

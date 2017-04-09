@@ -42,14 +42,14 @@ void Credits::onDraw(Renderer& renderer, StateManager& states) {
 
 void Credits::onUpdate(StateManager& states) {
 	// after 30 seconds go to the main menu
-	if(timer->Waitfor(30)){
-		states.SwitchState(g_Menu);
+	if(timer->waitFor(30)){
+		states.switchState(g_Menu);
 	}
 }
 
 void Credits::onEvent(StateManager& states, SDL_Event& event) {
 	if(event.type == SDL_KEYDOWN) {
-		states.SwitchState(1);
+		states.switchState(1);
 	}
 }
 

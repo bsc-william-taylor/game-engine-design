@@ -14,7 +14,7 @@
 #pragma once
 
 #include "StateManager.h"
-#include "GL_Renderer.h" 
+#include "RendererGL.h" 
 #include "Objects.h"
 #include "Timer.h"
 

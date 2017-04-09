@@ -13,7 +13,7 @@ class State
 {
 public:
     static MonsterFile* npcFile;
-    static PlayerFile* PlayerFileEnum;
+    static PlayerFile* playerFile;
     static ItemFile* itemFile;
     static GameFile* file;
 public:

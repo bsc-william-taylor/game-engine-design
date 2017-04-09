@@ -5,23 +5,23 @@
 
 class Timer
 {
-    LARGE_INTEGER start;
+    LARGE_INTEGER startTime;
+    LARGE_INTEGER endTime;
     LARGE_INTEGER freq;
-    LARGE_INTEGER end;
 
-    bool WaitBuffer;
-    bool Buffer;
+    bool bufferEnabled;
+    bool waitBuffer;
 public:
     Timer();
     ~Timer();
 
-    double GetTimeInMilliseconds();
-    double GetTimeInSeconds();
+    double getTimeInMilliseconds();
+    double getTimeInSeconds();
 
-    bool Waitfor(int);
+    bool waitFor(int);
 
-    void Start();
-    void Clear();
-    void End();
+    void start();
+    void clear();
+    void end();
 };
 

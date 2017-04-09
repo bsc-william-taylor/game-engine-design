@@ -71,9 +71,6 @@
     <ClCompile Include="CharecterSelection.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="GL_Renderer.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Collision.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -105,6 +102,9 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="StimulantPack.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="RendererGL.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -184,9 +184,6 @@
     <ClInclude Include="CharecterSelection.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="GL_Renderer.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Collision.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -221,6 +218,9 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererGL.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

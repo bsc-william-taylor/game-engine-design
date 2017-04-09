@@ -10,19 +10,19 @@ typedef vector<string> FileData;
 class FileReader 
 {
 private:
-    FileData Comments;
-    FileData Data;
+    FileData commentsData;
+    FileData fileData;
 
-    ofstream WriteFile;
-    fstream ReadFile;
-    string Filename;
+    ofstream writeFile;
+    fstream readFile;
+    string filename;
 public:
     FileReader(Game&, string&);
     ~FileReader();
 
-    FileData& GrabComments();
-    FileData& GrabData();
+    FileData& grabComments();
+    FileData& grabData();
 
-    void GrabFile();
-    void PushFile();
+    void grabFile();
+    void pushFile();
 };

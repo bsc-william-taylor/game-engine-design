@@ -34,7 +34,7 @@ void GameOver::onEvent(StateManager& state, SDL_Event& event) {
 		switch(event.key.keysym.sym) {
 			case SDLK_ESCAPE:
 			case SDLK_RETURN: {
-				state.SwitchState(g_Menu);
+				state.switchState(g_Menu);
 				break;
 			}
 			default: break;

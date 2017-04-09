@@ -21,8 +21,8 @@ class FantasyRogue : public Game {
 	public:
 	FantasyRogue();
 
-		void Initialise();
-		void Start();
+		void initialise();
+		void start();
 
 	~FantasyRogue();
 };

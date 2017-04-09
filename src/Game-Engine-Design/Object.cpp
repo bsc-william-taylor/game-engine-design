@@ -9,12 +9,6 @@ Object::Object()
 
 Object::~Object()
 {
-    for (auto& observer : observers)
-    {
-        delete observer;
-    }
-
-    observers.clear();
 }
 
 void Object::free(Observer * observer)
@@ -23,15 +17,17 @@ void Object::free(Observer * observer)
     {
         if (observers[i] == observer)
         {
+            delete *(observers.begin() + i);
             observers.erase(observers.begin() + i);
-            observers.resize(observers.size() - 1);
+            break;
         }
     }
 }
 
 void Object::notify()
 {
-    for (auto i = 0; i < observers.size(); i++) {
+    for (auto i = 0; i < observers.size(); i++) 
+    {
         observers[i]->notify();
     }
 }

@@ -10,13 +10,13 @@
  ------------------------------------------------ */
 
 #include "FantasyRogue.h"
-#include "GL_Renderer.h"
+#include "RendererGL.h" 
 #include "States.h"
 
 // Constructor & Deconstructor
 FantasyRogue::FantasyRogue() {
 	// Specify what renderer i wish
-	renderer = new GL_Renderer();
+	renderer = new RendererGL();
 }
 
 FantasyRogue::~FantasyRogue() { 
@@ -26,9 +26,9 @@ FantasyRogue::~FantasyRogue() {
 }
 
 // Functions
-void FantasyRogue::Initialise() {
+void FantasyRogue::initialise() {
 	// Initialise all variables
-	Game::Initialise();
+	Game::initialise();
 
 	// add new states
 	states->addState<SplashScreen>();
@@ -41,10 +41,10 @@ void FantasyRogue::Initialise() {
 	states->addState<GameOver>();
 
 	// set starting point
-	states->StartFrom(g_SplashScreen);
+	states->startFrom(g_SplashScreen);
 }
 
-void FantasyRogue::Start() {
+void FantasyRogue::start() {
 	// Get window size
 	Vector<int> size = gameFile->getWindowSize();
 	
@@ -53,5 +53,5 @@ void FantasyRogue::Start() {
 	glViewport(0, 0, size.getX(), size.getY());
 
 	// start the program
-	Game::Run();
+	Game::run();
 }

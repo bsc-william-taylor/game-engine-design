@@ -8,25 +8,25 @@
 class StateManager;
 class Factory;
 
-class Game 
+class Game
 {
 protected:
-    SDL_Window * SetupRC(SDL_GLContext &);
-    SDL_Window * Window;
-    SDL_Event event;
-
     StateManager* states;
     Renderer* renderer;
     GameFile* gameFile;
     Factory* factory;
 
+    SDL_Window* window;
+    SDL_Event event;
     bool loop;
 public:
     Game();
     virtual ~Game();
 
-    void ExitError(const char *);
-    void Exit();
-    void Initialise();
-    void Run();
+    void initialise();
+    void exitError(const char *);
+    void exit();
+    void run();
+
+    SDL_Window* setupRenderContext(SDL_GLContext &);
 };

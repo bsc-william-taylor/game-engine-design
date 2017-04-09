@@ -9,19 +9,19 @@
 
  ------------------------------------------------ */
 
-#include "GL_Renderer.h"
+#include "RendererGL.h"
 
 // Constructor & Deconstructor
-GL_Renderer::GL_Renderer() {
+RendererGL::RendererGL() {
 	glEnable(GL_TEXTURE_2D);
 }
 
-GL_Renderer::~GL_Renderer() {
+RendererGL::~RendererGL() {
 	glDisable(GL_TEXTURE_2D);
 }
 
 // Functions
-void GL_Renderer::drawCharacterVector(vector<Character*>& npc) {
+void RendererGL::drawCharacterVector(vector<Character*>& npc) {
 	for(unsigned int i = 0; i < npc.size(); i++) {
 		if(!npc[i]->isKilled()) {
 			drawCharacter(npc[i]);
@@ -29,7 +29,7 @@ void GL_Renderer::drawCharacterVector(vector<Character*>& npc) {
 	}
 }
 
-void GL_Renderer::drawItem(Item * object) {
+void RendererGL::drawItem(Item * object) {
 	// Get object positions
 	int x = object->getPosition().getX();
 	int y = object->getPosition().getY();
@@ -49,7 +49,7 @@ void GL_Renderer::drawItem(Item * object) {
 	glEnd();
 }
 
-void GL_Renderer::drawItemVector(vector<Item *>& items) {
+void RendererGL::drawItemVector(vector<Item *>& items) {
 	// Go through the vector and draw each element
 	for(unsigned int i = 0; i < items.size(); i++) {
 		// only if it hasnt been used
@@ -59,7 +59,7 @@ void GL_Renderer::drawItemVector(vector<Item *>& items) {
 	}
 }
 
-void GL_Renderer::drawCharacter(Character * npc){
+void RendererGL::drawCharacter(Character * npc){
 	// Get object positions
 	int x = npc->getPosition().getX();
 	int y = npc->getPosition().getY();
@@ -83,7 +83,7 @@ void GL_Renderer::drawCharacter(Character * npc){
 	drawLabel(npc->getLabel());
 }
 
-void GL_Renderer::drawLabelArray(Label* label[], int start, int size) {
+void RendererGL::drawLabelArray(Label* label[], int start, int size) {
 	// draw a section of the array
 	for(int i = start; i < size; i++) {
 		// draw label
@@ -91,7 +91,7 @@ void GL_Renderer::drawLabelArray(Label* label[], int start, int size) {
 	}
 }
 
-void GL_Renderer::drawPlayer(Character * c_player) {
+void RendererGL::drawPlayer(Character * c_player) {
 	// Draw Character first
 	drawCharacter(c_player);
 	string strStats;
@@ -111,7 +111,7 @@ void GL_Renderer::drawPlayer(Character * c_player) {
 	drawLabel(&stats);
 }
 
-void GL_Renderer::drawShop(Shop * shop) {
+void RendererGL::drawShop(Shop * shop) {
 	// Get positions
 	int x = shop->getPosition().getX();
 	int y = shop->getPosition().getY();
@@ -135,7 +135,7 @@ void GL_Renderer::drawShop(Shop * shop) {
 	drawLabel(shop->getLabel());
 }
 
-void GL_Renderer::drawLabel(Label * object) {
+void RendererGL::drawLabel(Label * object) {
 	// get positions
 	int x = object->getPosition().getX();
 	int y = object->getPosition().getY();
@@ -161,17 +161,17 @@ void GL_Renderer::drawLabel(Label * object) {
 	glDisable(GL_TEXTURE_2D);
 }
 
-void GL_Renderer::backgroundColour(float r, float g, float b, float a) {
+void RendererGL::backgroundColour(float r, float g, float b, float a) {
 	// set background colour
 	glClearColor(r, g, b, a);
 }
 
-void GL_Renderer::clearScreen() {
+void RendererGL::clearScreen() {
 	// Clear buffers
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void GL_Renderer::drawFullNpc(NPC * npc) {
+void RendererGL::drawFullNpc(NPC * npc) {
 	drawCharacter(npc);
 
 	string strStats;
@@ -189,7 +189,7 @@ void GL_Renderer::drawFullNpc(NPC * npc) {
 	drawLabel(&stats);
 }
 
-void GL_Renderer::drawPlayerStats(Player * player) {
+void RendererGL::drawPlayerStats(Player * player) {
 	string strStats;
 	Label stats;
 
@@ -206,7 +206,7 @@ void GL_Renderer::drawPlayerStats(Player * player) {
 	drawLabel(&stats);
 }
 
-void GL_Renderer::drawLabelArray(Label * label[], int number)  {
+void RendererGL::drawLabelArray(Label * label[], int number)  {
 	// Go through the vector
 	for(int i = 0; i < number; i++) {
 		// draw each element

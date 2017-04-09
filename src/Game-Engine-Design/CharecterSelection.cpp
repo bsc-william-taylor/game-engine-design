@@ -30,7 +30,7 @@ void CharactorSelection::onEvent(StateManager& state, SDL_Event& event) {
 	// if a key is pressed for to the map state
 	if(event.type == SDL_KEYDOWN) {
 		state.getState<Map>(g_Map)->ResetMap();
-		state.SwitchState(g_Map);
+		state.switchState(g_Map);
 	}
 }
 

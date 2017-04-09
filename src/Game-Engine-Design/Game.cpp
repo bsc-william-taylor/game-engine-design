@@ -3,13 +3,13 @@
 #include "States.h"
 #include "Game.h"
 
-PlayerFile * State::PlayerFileEnum = NULL;
+PlayerFile * State::playerFile = NULL;
 MonsterFile * State::npcFile = NULL;
 ItemFile * State::itemFile = NULL;
 GameFile * State::file = NULL;
 
 Game::Game()
-    : Window(NULL)
+    : window(NULL)
 {
     factory = new Factory(this);
     states = new StateManager(this, factory);
@@ -18,7 +18,7 @@ Game::Game()
     srand((unsigned int)(time(NULL)));
 
     State::npcFile = new MonsterFile(*this, "Data/monsters.txt");
-    State::PlayerFileEnum = new PlayerFile(*this, "Data/player.txt");
+    State::playerFile = new PlayerFile(*this, "Data/player.txt");
     State::itemFile = new ItemFile(*this, "Data/items.txt");
     State::file = gameFile;
 }
@@ -26,7 +26,7 @@ Game::Game()
 Game::~Game()
 {
     delete State::npcFile;
-    delete State::PlayerFileEnum;
+    delete State::playerFile;
     delete State::itemFile;
 
     delete gameFile;
@@ -34,13 +34,13 @@ Game::~Game()
     delete states;
 }
 
-SDL_Window * Game::SetupRC(SDL_GLContext &context)
+SDL_Window * Game::setupRenderContext(SDL_GLContext& context)
 {
-    SDL_Window * Window;
+    SDL_Window* window;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) 
     {
-        ExitError("Unable to initialize SDL");
+        exitError("Unable to initialize SDL");
     }
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
@@ -52,33 +52,32 @@ SDL_Window * Game::SetupRC(SDL_GLContext &context)
 
     Vector<int> position = gameFile->getWindowPos();
     Vector<int> size = gameFile->getWindowSize();
+    cstring title = gameFile->getWindowTitle();
 
-    cstring Title = gameFile->getWindowTitle();
+    window = SDL_CreateWindow(title, position.getX(), position.getY(), size.getX(), size.getY(), 2 | 4);
 
-    Window = SDL_CreateWindow(Title, position.getX(), position.getY(), size.getX(), size.getY(), 2 | 4);
-
-    if (!Window) 
+    if (!window) 
     {
-        ExitError("Unable to create window");
+        exitError("Unable to create window");
     }
 
-    context = SDL_GL_CreateContext(Window);
+    context = SDL_GL_CreateContext(window);
 
     SDL_GL_SetSwapInterval(1);
 
     if (TTF_Init() == -1)
     { 
-        ExitError("TTF failed to initialise.");
+        exitError("TTF failed to initialise.");
     }
 
-    return Window;
+    return window;
 }
 
-void Game::Initialise()
+void Game::initialise()
 {
-    SDL_GLContext RenderContext;
+    SDL_GLContext renderContext;
 
-    if (gameFile->DebugEnabled())
+    if (gameFile->debugEnabled())
     {
         SetConsoleTitle("Debug Console");
     }
@@ -87,11 +86,11 @@ void Game::Initialise()
         FreeConsole();
     }
 
-    Window = SetupRC(RenderContext);
-    Window != NULL ? loop = true : ExitError("Window failed to open");
+    window = setupRenderContext(renderContext);
+    window != NULL ? loop = true : exitError("Window failed to open");
 }
 
-void Game::Run()
+void Game::run()
 {
     while (loop)
     {
@@ -111,27 +110,27 @@ void Game::Run()
         states->getCurrentState()->onUpdate(*states);
         states->getCurrentState()->onDraw(*renderer, *states);
 
-        SDL_GL_SwapWindow(Window);
+        SDL_GL_SwapWindow(window);
     }
 
-    SDL_DestroyWindow(Window);
+    SDL_DestroyWindow(window);
     SDL_Quit();
 }
 
-void Game::Exit()
+void Game::exit()
 {
     loop = false;
 }
 
-void Game::ExitError(const char * message)
+void Game::exitError(const char* message)
 {
     SDL_Quit();
 
-    if (gameFile->DebugEnabled()) 
+    if (gameFile->debugEnabled()) 
     {
         cerr << message << " : " << SDL_GetError();
         cin.get();
     }
 
-    exit(1);
+    ::exit(1);
 }

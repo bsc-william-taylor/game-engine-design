@@ -14,7 +14,7 @@
 // Constructor & Deconstructor
 Map::Map(Factory * renderList) {
 	// Create a player
-	player = renderList->newCharacter<Player>("Player", State::PlayerFileEnum);
+	player = renderList->newCharacter<Player>("Player", State::playerFile);
 
 	// Create the store
 	store = renderList->newObject<Shop>("store");
@@ -82,7 +82,7 @@ void Map::onEvent(StateManager& state, SDL_Event& event) {
 	// Move player if the right key is pressed
 	if(event.type == SDL_KEYDOWN) {
 		switch(event.key.keysym.sym) {
-			case SDLK_ESCAPE: state.SwitchState(1); break;
+			case SDLK_ESCAPE: state.switchState(1); break;
 			case SDLK_DOWN:
 			case 's': 
 			case 'S': static_cast<Player *>(player)->moveY(-10); break;
@@ -136,13 +136,13 @@ void Map::onEnter(StateManager& state) {
 	// if there are no enemys alive go to the gameover screen
 	if(monstersAlive == 0) {
 		state.getState<GameOver>(g_GameOver)->setWinner(true);
-		state.SwitchState(g_GameOver);
+		state.switchState(g_GameOver);
 	}
 
 	// if there player isnt alive go to the gameover screen
 	if(player->isKilled()) {
 		state.getState<GameOver>(g_GameOver)->setWinner(false);
-		state.SwitchState(g_GameOver);
+		state.switchState(g_GameOver);
 	}
 }
 
@@ -174,7 +174,7 @@ void Map::onUpdate(StateManager& state) {
 
 			// set the enemy variable for the Combat state then switch to that state
 			state.getState<Combat>(g_Battle)->setOpponent((NPC *)EnemyCollision[i]->getNode());
-			state.SwitchState(g_Battle);
+			state.switchState(g_Battle);
 			break;
 		}
 	}
@@ -200,6 +200,6 @@ void Map::onUpdate(StateManager& state) {
 
 		// & go to the store state
 		player->setPosition(Vector<int>(x, y));
-		state.SwitchState(g_Store);
+		state.switchState(g_Store);
 	}
 }
