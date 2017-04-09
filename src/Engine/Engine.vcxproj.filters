@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Game Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Framework\Factory %28Done%29">
+      <UniqueIdentifier>{ade41f79-38fa-45f1-8ae7-f8efa9ae96a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Game %28Done%29">
+      <UniqueIdentifier>{e69ad7aa-8200-4f70-8174-1b1f19221b2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Timer %28Done%29">
+      <UniqueIdentifier>{afae4d2e-e8bf-40b2-95b2-e0c477b9d67c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Vector %28Done%29">
+      <UniqueIdentifier>{98031e54-fe82-4e9e-8338-aa0e837f4fa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Object %28Done%29">
+      <UniqueIdentifier>{aaa58166-4175-4d9a-a769-a4e5ff410282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Renderer %28Done%29">
+      <UniqueIdentifier>{0f12ddf3-47b7-4979-ae08-d65ed663c39d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Files %28Done%29">
+      <UniqueIdentifier>{fe516067-4ef6-4cd6-ac78-090a52d09f67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Fantasy Rogue %28Done%29">
+      <UniqueIdentifier>{42de8ac4-d19a-45c3-b5a4-a48fafcf1f54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\File / IO %28Done%29">
+      <UniqueIdentifier>{b6b1a3a1-fff3-4ba8-a08c-14e6edfb3ae4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\File / IO %28Done%29\Game File %28Done%29">
+      <UniqueIdentifier>{1ba7ba9d-a06d-4d58-a077-2721eeafbdfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\File / IO %28Done%29\Monster File %28Done%29">
+      <UniqueIdentifier>{b5616320-4dfc-4a93-b4cb-ddbbc185d2da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\File / IO %28Done%29\Item File %28Done%29">
+      <UniqueIdentifier>{f4f606d8-bcce-430c-8349-c65a2487c0fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\File / IO %28Done%29\File Reader %28Done%29">
+      <UniqueIdentifier>{88253e41-fef3-42f9-9a56-3bf893242b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\File / IO %28Done%29\Player File %28Done%29">
+      <UniqueIdentifier>{a7ea186b-1018-458e-a10a-e7f8da1ebd5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\States %28Done%29">
+      <UniqueIdentifier>{349b747a-ba2d-4e65-a172-eb9ae70acee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\States %28Done%29\Manager">
+      <UniqueIdentifier>{6509a99b-857d-4393-b7c9-81402ab39c75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Observer %28Done%29">
+      <UniqueIdentifier>{4f79d9ae-cd2b-4a10-b0ec-1a22fa7864a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Renderer %28Done%29">
+      <UniqueIdentifier>{2f09efab-a7bc-436d-a47d-94df95e1c4bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Observers %28Done%29">
+      <UniqueIdentifier>{72b873ec-c495-4ca0-8f1c-c7737d6c5cc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Observers %28Done%29\Collides %28Done%29">
+      <UniqueIdentifier>{13a8138a-b8dd-4006-bfdb-4a47c038a784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Observers %28Done%29\Border %28Done%29">
+      <UniqueIdentifier>{57cae364-c26d-4e0a-a3cf-08c333a108ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29">
+      <UniqueIdentifier>{580436f3-7498-4012-ae60-1e18b8903ec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Shop %28Done%29">
+      <UniqueIdentifier>{be0b2b04-3c93-480f-ab4e-b1b893e9d49c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Label %28Done%29">
+      <UniqueIdentifier>{531bb618-b010-4a50-91fc-aefd61198dab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Charectors %28Done%29">
+      <UniqueIdentifier>{e671b679-46d1-4f51-899a-f3b5832896cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Charectors %28Done%29\NPC %28Done%29">
+      <UniqueIdentifier>{ddaf1ec0-7b51-48e6-bede-74efa6b983e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Charectors %28Done%29\Player %28Done%29">
+      <UniqueIdentifier>{a3999d63-fe39-49f6-8bf2-b8182ee9662f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Items %28Done%29">
+      <UniqueIdentifier>{d62f5d76-53bb-4141-ba9c-97758e72dbb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Items %28Done%29\Health %28Done%29">
+      <UniqueIdentifier>{fefcfef9-371f-4b38-a770-77d10d97ab18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Items %28Done%29\Combat %28Done%29">
+      <UniqueIdentifier>{92f02ba2-e501-4832-93f2-4acc74e31cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Items %28Done%29\Stimulant %28Done%29">
+      <UniqueIdentifier>{8d0452c6-a087-4618-baf0-464fba3255b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Objects %28Done%29\Items %28Done%29\Item %28Done%29">
+      <UniqueIdentifier>{be0fe7f1-c369-404b-b6b6-bf36d546f9a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29">
+      <UniqueIdentifier>{e8716a29-ad16-4f93-ae33-eb535c551bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29\Main Menu %28Done%29">
+      <UniqueIdentifier>{8151367c-bbff-4ffc-9e45-cb1e3627410b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29\Game Over %28Done%29">
+      <UniqueIdentifier>{0b7289de-42c0-400e-beba-d8880a453cab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29\Credits %28Done%29">
+      <UniqueIdentifier>{b023052f-8f5f-43ef-a008-357b83fffee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29\Map %28Done%29">
+      <UniqueIdentifier>{ed4f33ec-f809-4387-a117-aa5eb3c0d1b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29\Combat %28Done%29">
+      <UniqueIdentifier>{92a618ca-f4a1-43c7-bbc6-5dd6ee5289ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29\Charactor Select %28Done%29">
+      <UniqueIdentifier>{0ffd43a0-f690-4130-8eb3-76bedb47618e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29\SpashScreen %28Done%29">
+      <UniqueIdentifier>{d1ef6e81-2ab0-4707-8a27-54b64d55e9ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\States %28Done%29\Shop %28Done%29">
+      <UniqueIdentifier>{62233c4e-19b9-492b-9319-00f56ac3eb44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Framework\Game %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashScreen.cpp">
+      <Filter>Game Files\States %28Done%29\SpashScreen %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Framework\States %28Done%29\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Game Files\States %28Done%29\Main Menu %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="FantasyRogue.cpp">
+      <Filter>Game Files\Fantasy Rogue %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>Game Files\Objects %28Done%29\Shop %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Game Files\Objects %28Done%29\Label %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Framework\Observer %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Game Files\Observers %28Done%29\Collides %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Framework\Timer %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Credits.cpp">
+      <Filter>Game Files\States %28Done%29\Credits %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopState.cpp">
+      <Filter>Game Files\States %28Done%29\Shop %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Game Files\States %28Done%29\Game Over %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Border.cpp">
+      <Filter>Game Files\Observers %28Done%29\Border %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Game Files\States %28Done%29\Map %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Combat.cpp">
+      <Filter>Game Files\States %28Done%29\Combat %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC.cpp">
+      <Filter>Game Files\Objects %28Done%29\Charectors %28Done%29\NPC %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Game Files\Objects %28Done%29\Charectors %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Game Files\Objects %28Done%29\Items %28Done%29\Item %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="StimulantPack.cpp">
+      <Filter>Game Files\Objects %28Done%29\Items %28Done%29\Stimulant %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthPack.cpp">
+      <Filter>Game Files\Objects %28Done%29\Items %28Done%29\Health %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="CombatPack.cpp">
+      <Filter>Game Files\Objects %28Done%29\Items %28Done%29\Combat %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterFile.cpp">
+      <Filter>Framework\File / IO %28Done%29\Monster File %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFile.cpp">
+      <Filter>Framework\File / IO %28Done%29\Item File %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFile.cpp">
+      <Filter>Framework\File / IO %28Done%29\Game File %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Framework\File / IO %28Done%29\File Reader %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFile.cpp">
+      <Filter>Framework\File / IO %28Done%29\Player File %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="GL_Renderer.cpp">
+      <Filter>Game Files\Renderer %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Framework\Object %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game Files\Objects %28Done%29\Charectors %28Done%29\Player %28Done%29</Filter>
+    </ClCompile>
+    <ClCompile Include="CharecterSelection.cpp">
+      <Filter>Game Files\States %28Done%29\Charactor Select %28Done%29</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Main.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Framework\Game %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashScreen.h">
+      <Filter>Game Files\States %28Done%29\SpashScreen %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Framework\States %28Done%29\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="States.h">
+      <Filter>Game Files\States %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="GL_Renderer.h">
+      <Filter>Game Files\Renderer %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="FantasyRogue.h">
+      <Filter>Game Files\Fantasy Rogue %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>Game Files\Objects %28Done%29\Shop %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Label.h">
+      <Filter>Game Files\Objects %28Done%29\Label %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Framework\Observer %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Framework\Timer %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Credits.h">
+      <Filter>Game Files\States %28Done%29\Credits %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Framework\Vector %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopState.h">
+      <Filter>Game Files\States %28Done%29\Shop %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>Game Files\States %28Done%29\Game Over %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Border.h">
+      <Filter>Game Files\Observers %28Done%29\Border %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Game Files\States %28Done%29\Main Menu %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Game Files\States %28Done%29\Map %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Combat.h">
+      <Filter>Game Files\States %28Done%29\Combat %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC.h">
+      <Filter>Game Files\Objects %28Done%29\Charectors %28Done%29\NPC %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects.h">
+      <Filter>Game Files\Objects %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Game Files\Observers %28Done%29\Collides %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Framework\Renderer %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Framework\States %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Game Files\Objects %28Done%29\Items %28Done%29\Item %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Framework\Factory %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatPack.h">
+      <Filter>Game Files\Objects %28Done%29\Items %28Done%29\Combat %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthPack.h">
+      <Filter>Game Files\Objects %28Done%29\Items %28Done%29\Health %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="StimulantPack.h">
+      <Filter>Game Files\Objects %28Done%29\Items %28Done%29\Stimulant %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterFile.h">
+      <Filter>Framework\File / IO %28Done%29\Monster File %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemFile.h">
+      <Filter>Framework\File / IO %28Done%29\Item File %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFile.h">
+      <Filter>Framework\File / IO %28Done%29\Game File %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Framework\File / IO %28Done%29\File Reader %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFile.h">
+      <Filter>Framework\File / IO %28Done%29\Player File %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Game Files\Objects %28Done%29\Charectors %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Framework\Object %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game Files\Objects %28Done%29\Charectors %28Done%29\Player %28Done%29</Filter>
+    </ClInclude>
+    <ClInclude Include="CharecterSelection.h">
+      <Filter>Game Files\States %28Done%29\Charactor Select %28Done%29</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="game.txt">
+      <Filter>Game Files\Files %28Done%29</Filter>
+    </Text>
+    <Text Include="monsters.txt">
+      <Filter>Game Files\Files %28Done%29</Filter>
+    </Text>
+    <Text Include="player.txt">
+      <Filter>Game Files\Files %28Done%29</Filter>
+    </Text>
+    <Text Include="items.txt">
+      <Filter>Game Files\Files %28Done%29</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

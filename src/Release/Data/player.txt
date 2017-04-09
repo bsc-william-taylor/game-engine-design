@@ -1,0 +1,112 @@
+
+###################################################
+##												 ##
+##					Game File					 ##
+##												 ##
+###################################################
+
+###########################################
+## Player Settings
+
+# Player Name
+# Player Current Position
+# Player Starting Position
+
+# Name & Positions
+William
+350
+350
+50
+50
+
+# Starting Position
+0
+0
+
+# Colour
+1.0
+1.0
+1.0
+
+# Statistics
+10   // Start Health
+8   // Start Strength
+8   // Start Speed
+12   // Strength
+10   // Health
+9   // Speed
+12   // Cash
+0   //Dead
+
+
+###########################################
+# Date   : 21/11/2013
+# Author : William Taylor
+#
+#	Author comments can go here
+#
+
+#EOF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
