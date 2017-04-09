@@ -9,6 +9,7 @@ Debug
 Release
 .vs
 *.db
+*.opendb
 
 # Precompiled Headers
 *.gch

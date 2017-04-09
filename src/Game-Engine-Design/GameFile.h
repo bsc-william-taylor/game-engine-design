@@ -1,14 +1,14 @@
 
 /* ------------------------------------------------
 
-	@File		: GameFile.h
-	@Date		: 21/11/2013
-	@Purpose	:
+    @File		: GameFile.h
+    @Date		: 21/11/2013
+    @Purpose	:
 
-		A class that opens the game file
-		and gets all relevant data. Game
-		settings can then be read by
-		various get methods.
+        A class that opens the game file
+        and gets all relevant data. Game
+        settings can then be read by
+        various get methods.
 
  ------------------------------------------------ */
 
@@ -20,26 +20,26 @@
 class Game;
 
 class GameFile {
-	private:
+private:
 
-		// Use file reader to read all data
-		FileReader * file;
+    // Use file reader to read all data
+    FileReader * file;
 
-	public:
+public:
 
-	GameFile(Game&, string);
-		
-		// Various get methods to get data
-		Vector<int> getWindowSize();
-		Vector<int> getWindowPos();
-		
-		const string& getPublisherName();
-		const string& getCreatorName();
-		const string& getStudioName();
+    GameFile(Game&, string);
 
-		cstring getWindowTitle();
+    // Various get methods to get data
+    Vector<int> getWindowSize();
+    Vector<int> getWindowPos();
 
-		bool DebugEnabled();	
+    const string& getPublisherName();
+    const string& getCreatorName();
+    const string& getStudioName();
 
-	~GameFile();
+    cstring getWindowTitle();
+
+    bool DebugEnabled();
+
+    ~GameFile();
 };

@@ -1,42 +1,27 @@
 
-/* ------------------------------------------------
-
-	@File		: Timer.h
-	@Date		: 21/11/2013
-	@Purpose	:
-
-		A simple timer class that use
-		the high resolution windows timer
-
- ------------------------------------------------ */
-
 #pragma once
 
 #include "Main.h"
 
-class Timer {
-	private:
+class Timer
+{
+    LARGE_INTEGER start;
+    LARGE_INTEGER freq;
+    LARGE_INTEGER end;
 
-		LARGE_INTEGER start;
-		LARGE_INTEGER freq;
-		LARGE_INTEGER end;
+    bool WaitBuffer;
+    bool Buffer;
+public:
+    Timer();
+    ~Timer();
 
-		bool WaitBuffer;
-		bool Buffer;
+    double GetTimeInMilliseconds();
+    double GetTimeInSeconds();
 
-	public:
+    bool Waitfor(int);
 
-	Timer();
-		
-		double GetTimeInMilliseconds();
-		double GetTimeInSeconds();
-
-		bool Waitfor(int);
-
-		void Start();
-		void Clear();
-		void End();
-
-	~Timer();
+    void Start();
+    void Clear();
+    void End();
 };
 

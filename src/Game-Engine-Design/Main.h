@@ -1,21 +1,8 @@
 
-/* ------------------------------------------------
-
-	@File		: Main.h
-	@Date		: 08/11/2013
-	@Purpose	:
-
-		A common header file for all other
-		files, to simplify how i include 
-		multiple headers and librarys
-
- ------------------------------------------------ */
-
 #pragma once
 
 #if _DEBUG
-	// Enables console if in debug mode
-	#pragma comment(linker, "/subsystem:\"console\" /entry:\"WinMainCRTStartup\"")
+#pragma comment(linker, "/subsystem:\"console\" /entry:\"WinMainCRTStartup\"")
 #endif
 
 #include <Windows.h>
@@ -51,6 +38,3 @@ using std::to_string;
 using std::cerr;
 using std::cout;
 using std::cin;
-
-// Simple Gobal Round up function
-int RoundUp(float);

@@ -1,17 +1,4 @@
 
-/* ------------------------------------------------
-
-	@File		: MonsterFile.h
-	@Date		: 21/11/2013
-	@Purpose	:
-
-		A class that opens the item file
-		and gets all relevant data. The engine
-		then reads this and constructs the monsters
-		listed in the file.
-
- ------------------------------------------------ */
-
 #pragma once
 
 #include "FileReader.h"
@@ -22,30 +9,26 @@
 class Character;
 class Game;
 
-class MonsterFile {
-	private:
+class MonsterFile 
+{
+private:
+    FileReader * file;
+public:
+    MonsterFile(Game&, string);
+    ~MonsterFile();
 
-		FileReader * file;
+    Character * getCharacter(int);
+    MonsterStats getStats(int);
+    Colour getColour(int);
 
-	public:
+    int getMonsterNumbers();
 
-	MonsterFile(Game&, string);
-		
-		// get & set methods so data can be updated
-		Character * getCharacter(int);
-		MonsterStats getStats(int);
-		Colour getColour(int);
+    void setPosition(int, Vector<int>);
+    void setStats(int, MonsterStats);
+    void push();
 
-		int getMonsterNumbers();
+    Vector<int> getPosition(int);
+    Vector<int> getSize(int);
 
-		void setPosition(int, Vector<int>);
-		void setStats(int, MonsterStats);
-		void push();
-
-		Vector<int> getPosition(int);
-		Vector<int> getSize(int);
-
-		cstring getName(int);
-
-	~MonsterFile();
+    cstring getName(int);
 };

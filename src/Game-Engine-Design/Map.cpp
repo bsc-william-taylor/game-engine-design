@@ -14,7 +14,7 @@
 // Constructor & Deconstructor
 Map::Map(Factory * renderList) {
 	// Create a player
-	player = renderList->newCharacter<Player>("Player", State::playerFile);
+	player = renderList->newCharacter<Player>("Player", State::PlayerFileEnum);
 
 	// Create the store
 	store = renderList->newObject<Shop>("store");
