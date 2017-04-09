@@ -2,7 +2,7 @@
 #include "MonsterFile.h"
 #include "NPC.h"
 
-enum MonsterEnum 
+enum MonsterEnum
 {
     NUMBERS,
     NAME, POS_X,

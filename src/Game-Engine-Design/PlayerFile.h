@@ -10,12 +10,11 @@ class Game;
 
 class PlayerFile
 {
-private:
     FileReader* file;
 public:
     PlayerFile(Game&, string);
     ~PlayerFile();
-    
+
     PlayerStats getStats();
     Colour getColour();
     string getName();

@@ -3,11 +3,11 @@
 
 #include "Objects.h"
 
-class Renderer 
+class Renderer
 {
 public:
     Renderer() {}
-    virtual ~Renderer() {}
+    virtual ~Renderer() = default;
     virtual void backgroundColour(float, float, float, float) = 0;
     virtual void drawCharacterVector(vector<Character*>&) = 0;
     virtual void drawLabelArray(Label*[], int, int) = 0;

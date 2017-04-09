@@ -32,7 +32,7 @@ public:
     template<class State>
     State* getState(unsigned int i)
     {
-        if (i < gameStates.size()) 
+        if (i < gameStates.size())
         {
             return (State *)gameStates[i];
         }
@@ -43,7 +43,7 @@ public:
     }
 
     template<class State>
-    void addState() 
+    void addState()
     {
         gameStates.push_back(new State(factory));
     }

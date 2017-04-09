@@ -1,17 +1,4 @@
 
-/* ------------------------------------------------
-
-    @File		: GameFile.h
-    @Date		: 21/11/2013
-    @Purpose	:
-
-        A class that opens the game file
-        and gets all relevant data. Game
-        settings can then be read by
-        various get methods.
-
- ------------------------------------------------ */
-
 #pragma once
 
 #include "FileReader.h"
@@ -19,17 +6,13 @@
 
 class Game;
 
-class GameFile {
-private:
-
-    // Use file reader to read all data
+class GameFile 
+{
     FileReader * file;
-
 public:
-
     GameFile(Game&, string);
+    ~GameFile();
 
-    // Various get methods to get data
     Vector<int> getWindowSize();
     Vector<int> getWindowPos();
 
@@ -40,6 +23,4 @@ public:
     cstring getWindowTitle();
 
     bool DebugEnabled();
-
-    ~GameFile();
 };

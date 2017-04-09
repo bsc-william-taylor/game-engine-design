@@ -9,9 +9,8 @@
 class Character;
 class Game;
 
-class MonsterFile 
+class MonsterFile
 {
-private:
     FileReader * file;
 public:
     MonsterFile(Game&, string);

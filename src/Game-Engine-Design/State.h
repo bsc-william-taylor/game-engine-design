@@ -18,8 +18,8 @@ public:
     static GameFile* file;
 public:
     State() {}
-    virtual ~State() {}
-    
+    virtual ~State() = default;
+
     virtual void onEvent(StateManager&, SDL_Event&) = 0;
     virtual void onDraw(Renderer&, StateManager&) = 0;
     virtual void onUpdate(StateManager&) = 0;

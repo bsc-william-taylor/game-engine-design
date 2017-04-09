@@ -10,7 +10,6 @@ class Game;
 
 class ItemFile 
 {
-private:
     FileReader * file;
 public:
     ItemFile(Game&, string);

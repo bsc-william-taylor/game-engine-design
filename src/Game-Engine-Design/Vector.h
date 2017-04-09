@@ -31,27 +31,27 @@ public:
 
     ~Vector() {}
 
-    void set(Type x, Type y) 
+    void set(Type x, Type y)
     {
         this->x = x;
         this->y = y;
     }
 
-    Vector& operator+=(Vector& vector) 
+    Vector& operator+=(Vector& vector)
     {
         x += vector.getX();
         y += vector.getY();
         return *this;
     }
 
-    Vector& operator-=(Vector& vector) 
+    Vector& operator-=(Vector& vector)
     {
         x -= vector.getX();
         y -= vector.getY();
         return *this;
     }
 
-    Vector& operator=(Vector& vector) 
+    Vector& operator=(Vector& vector)
     {
         x = vector.getX();
         y = vector.getY();
