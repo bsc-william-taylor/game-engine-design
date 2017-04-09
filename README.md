@@ -13,7 +13,17 @@ The assignment was to develop a prototype game that showed off good use of moder
 
 ## Submission
 
+A full implementation of the features set out in the coursework was implemented. I used OpenGL for drawing the basic shapes with texture support added in the future if wanted. Window management was managed with SDL2 with Fonts managed with the True Type Fond library. 
 
+I also implemented several key design patterns such as those below but no singleton for obvious reasons.
+
+* Observer pattern
+* Factory pattern
+* State pattern
+* Strategy pattern
+
+I also adopted a data driven design so the loading and saving of game files was supported along with customization of the labels shown on screen in the credit scenes for example. 
+ 
 
 ## License
 
