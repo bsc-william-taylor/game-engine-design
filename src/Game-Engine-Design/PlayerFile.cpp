@@ -50,14 +50,14 @@ void PlayerFile::push()
 PlayerStats PlayerFile::getStats()
 {
     PlayerStats stats;
-    stats.StartHealth = atoi(file->grabData()[PLAYER_START_HEALTH].c_str());
+    stats.startHealth = atoi(file->grabData()[PLAYER_START_HEALTH].c_str());
     stats.StartStrength = atoi(file->grabData()[PLAYER_START_STRENGTH].c_str());
     stats.StartSpeed = atoi(file->grabData()[PLAYER_START_SPEED].c_str());
-    stats.Strength = atoi(file->grabData()[PLAYER_STRENGTH].c_str());
-    stats.Health = atoi(file->grabData()[PLAYER_HEALTH].c_str());
-    stats.Speed = atoi(file->grabData()[PLAYER_SPEED].c_str());
-    stats.Cash = atoi(file->grabData()[PLAYER_CASH].c_str());
-    stats.Dead = atoi(file->grabData()[PLAYER_DEAD].c_str());
+    stats.strength = atoi(file->grabData()[PLAYER_STRENGTH].c_str());
+    stats.health = atoi(file->grabData()[PLAYER_HEALTH].c_str());
+    stats.speed = atoi(file->grabData()[PLAYER_SPEED].c_str());
+    stats.cash = atoi(file->grabData()[PLAYER_CASH].c_str());
+    stats.dead = atoi(file->grabData()[PLAYER_DEAD].c_str());
     return stats;
 }
 
@@ -83,14 +83,14 @@ void PlayerFile::setPosition(Vector<int> position)
 
 void PlayerFile::setStats(PlayerStats stats)
 {
-    file->grabData()[PLAYER_START_HEALTH] = to_string(stats.StartHealth).append("   // Start Health");
+    file->grabData()[PLAYER_START_HEALTH] = to_string(stats.startHealth).append("   // Start Health");
     file->grabData()[PLAYER_START_STRENGTH] = to_string(stats.StartStrength).append("   // Start Strength");
     file->grabData()[PLAYER_START_SPEED] = to_string(stats.StartSpeed).append("   // Start Speed");
-    file->grabData()[PLAYER_STRENGTH] = to_string(stats.Strength).append("   // Strength");
-    file->grabData()[PLAYER_HEALTH] = to_string(stats.Health).append("   // Health");
-    file->grabData()[PLAYER_SPEED] = to_string(stats.Speed).append("   // Speed");
-    file->grabData()[PLAYER_CASH] = to_string(stats.Cash).append("   // Cash");
-    file->grabData()[PLAYER_DEAD] = to_string(stats.Dead).append("   //Dead");
+    file->grabData()[PLAYER_STRENGTH] = to_string(stats.strength).append("   // Strength");
+    file->grabData()[PLAYER_HEALTH] = to_string(stats.health).append("   // Health");
+    file->grabData()[PLAYER_SPEED] = to_string(stats.speed).append("   // Speed");
+    file->grabData()[PLAYER_CASH] = to_string(stats.cash).append("   // Cash");
+    file->grabData()[PLAYER_DEAD] = to_string(stats.dead).append("   //Dead");
 }
 
 Vector<int> PlayerFile::getStart()

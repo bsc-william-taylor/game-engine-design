@@ -68,9 +68,6 @@
     <ClCompile Include="Combat.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="CharecterSelection.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Collision.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -105,6 +102,9 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="RendererGL.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterSelection.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -181,9 +181,6 @@
     <ClInclude Include="Combat.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="CharecterSelection.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Collision.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -221,6 +218,9 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="RendererGL.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterSelection.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

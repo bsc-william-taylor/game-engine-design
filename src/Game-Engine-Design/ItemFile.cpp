@@ -1,7 +1,7 @@
 
 #include "ItemFile.h"
 
-enum Items
+enum items
 {
     ITEM_NUM,
     ITEM_NAME,
@@ -39,22 +39,22 @@ Item * ItemFile::getItem(int num)
     if (name == "Health" || name == "health")
     {
         temp = new HealthPack(this);
-        temp->SetColour(1.0, 0.0, 0.0);
+        temp->setColour(1.0, 0.0, 0.0);
     }
 
     if (name == "Combat" || name == "combat")
     {
         temp = new CombatPack(this);
-        temp->SetColour(0.0, 0.0, 1.0);
+        temp->setColour(0.0, 0.0, 1.0);
     }
 
     if (name == "Stimulant" || name == "stimulant")
     {
         temp = new StimulantPack(this);
-        temp->SetColour(0.0, 1.0, 0.0);
+        temp->setColour(0.0, 1.0, 0.0);
     }
 
-    temp->SetItemNumber(location);
+    temp->setItemNumber(location);
     return temp;
 }
 

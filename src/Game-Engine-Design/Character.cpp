@@ -1,47 +1,40 @@
 
-/* ------------------------------------------------
-
-	@File		: Character.cpp
-	@Date		: 21/11/2013
-	@Purpose	:
-
-		Character class implementation
-
-
- ------------------------------------------------ */
 #include "Character.h"
 
-// Constructor & Deconstructor
-Character::Character(Character& character) {
-	setPosition(character.getPosition());
-	setSize(character.getSize());
-	colour = character.getColour();
-	num = character.num;
+Character::Character(Character& character) 
+{
+    setPosition(character.getPosition());
+    setSize(character.getSize());
+    colour = character.getColour();
+    num = character.num;
 
-	text.SetText("Data/MavenPro-Regular.ttf", 13);
+    text.setText("Data/MavenPro-Regular.ttf", 13);
 }
 
-Character::Character() {
-	text.SetText("Data/MavenPro-Regular.ttf", 13);
+Character::Character() 
+{
+    text.setText("Data/MavenPro-Regular.ttf", 13);
 
-	colour.r = 0.0f;
-	colour.g = 0.0f;
-	colour.b = 0.0f;
+    colour.r = 0.0f;
+    colour.g = 0.0f;
+    colour.b = 0.0f;
 }
 
-Character::~Character() {
-	// nothing to delete
+Character::~Character() 
+{
 }
 
-// Functions
-void Character::setNum(int number) {
-	this->num = number; 
+void Character::setNum(int number) 
+{
+    this->num = number;
 }
 
-Label * Character::getLabel() {
-	return &text;
+Label * Character::getLabel() 
+{
+    return &text;
 }
 
-Colour& Character::getColour() {
-	return colour;
+Colour& Character::getColour() 
+{
+    return colour;
 }

@@ -1,180 +1,187 @@
 
-/* ------------------------------------------------
-
-	@File		: Combat.cpp
-	@Date		: 08/11/2013
-	@Purpose	:
-		
-		Class implementation
-
- ------------------------------------------------ */
-
 #include "Combat.h"
 
-// Constructor & Deconstructor
-Combat::Combat(Factory * renderList) {
-	player = renderList->getObject<Player>("Player");
-	firsthit = false;
-	finish = false;
+Combat::Combat(Factory * renderList)
+{
+    playerCharacter = renderList->getObject<Player>("Player");
+    firsthit = false;
+    finish = false;
 
-	Title = renderList->newObject<Label>("GameOverTitle");
-	Title->SetText("Data/MavenPro-Regular.ttf", 30);
-	Title->setPosition(Vector<int>(290, 210));
+    title = renderList->newObject<Label>("GameOverTitle");
+    title->setText("Data/MavenPro-Regular.ttf", 30);
+    title->setPosition(Vector<int>(290, 210));
 }
 
-Combat::~Combat() {
-	// Nothing to delete
+Combat::~Combat()
+{
 }
 
-// Functions
-void Combat::onEnter(StateManager& StateManager) {
-	// get current positions & save them for later use
-	monsterPos = opponent->getPosition();
-	playerPos = player->getPosition();
+void Combat::onEnter(StateManager& StateManager)
+{
+    monsterPos = opponent->getPosition();
+    playerPos = playerCharacter->getPosition();
 
-	// set new position
-	opponent->setPosition(Vector<int>(500, 200));
-	player->setPosition(Vector<int>(200, 200));
+    opponent->setPosition(Vector<int>(500, 200));
+    playerCharacter->setPosition(Vector<int>(200, 200));
 
-	// set it so no winner has been selected
-	previousHealth = player->getStats().Health;
-	playerWin = -1;
+    previousHealth = playerCharacter->getStats().health;
+    playerWin = -1;
 }
 
-void Combat::onExit(StateManager& StateManager) {
-	// set positions to the existing location
-	opponent->setPosition(monsterPos);
-	opponent->Save();
+void Combat::onExit(StateManager& StateManager)
+{
+    opponent->setPosition(monsterPos);
+    opponent->save();
 
-	// reset values
-	firsthit = false;
-	finish = false;
+    firsthit = false;
+    finish = false;
 
-	// set back to previous position
-	player->setPosition(playerPos);
-	player->Save();
+    playerCharacter->setPosition(playerPos);
+    playerCharacter->save();
 }
 
-void Combat::onEvent(StateManager& StateManager, SDL_Event& event) {
-	if(event.type == SDL_KEYDOWN) {
-		switch(event.key.keysym.sym) {
-			case SDLK_ESCAPE:
-			case SDLK_e: {
-				if(playerWin >= 0) {
-					if(playerWin) {
-						StateManager.switchState(g_Map); 
-					} else {
-						StateManager.getState<GameOver>(g_GameOver)->setWinner(false);
-						StateManager.switchState(g_GameOver); 
-					}
-				} break;
-			}
-			case SDLK_RETURN:
-			case SDLK_SPACE: 
-				// press space to resolve combat
-				if(playerWin < 0) {
-					firsthit = true;
-					break;
-				}
-			default: break;
-		}
-	}
+void Combat::onEvent(StateManager& StateManager, SDL_Event& event)
+{
+    if (event.type == SDL_KEYDOWN)
+    {
+        switch (event.key.keysym.sym)
+        {
+        case SDLK_ESCAPE:
+        case SDLK_e:
+        {
+            if (playerWin >= 0)
+            {
+                if (playerWin)
+                {
+                    StateManager.switchState(MapScene);
+                }
+                else
+                {
+                    StateManager.getState<GameOver>(GameOverScene)->setWinner(false);
+                    StateManager.switchState(GameOverScene);
+                }
+            } break;
+        }
+        case SDLK_RETURN:
+        case SDLK_SPACE:
+            if (playerWin < 0)
+            {
+                firsthit = true;
+                break;
+            }
+        default:
+            break;
+        }
+    }
 }
 
-void Combat::onDraw(Renderer& renderer, StateManager& StateManager) {
-	renderer.clearScreen();
-	renderer.backgroundColour(0.0, 0.0, 1.0, 0.0);
-	renderer.drawFullNpc(opponent);
-	renderer.drawPlayer(player);
+void Combat::onDraw(Renderer& renderer, StateManager& StateManager)
+{
+    renderer.clearScreen();
+    renderer.backgroundColour(0.0, 0.0, 1.0, 0.0);
+    renderer.drawFullNpc(opponent);
+    renderer.drawPlayer(playerCharacter);
 
-	// render the win text if the player wins
-	if(playerWin == 1) {
-		Title->TextToTexture("Player Wins");
-		renderer.drawLabel(Title);
-	} 
-	// else render the player looses text
-	if(!playerWin) {
-		Title->TextToTexture("Player Looses");
-		renderer.drawLabel(Title);
-	}
+    if (playerWin)
+    {
+        title->textToTexture("Player Wins");
+        renderer.drawLabel(title);
+    }
+
+    if (!playerWin)
+    {
+        title->textToTexture("Player Looses");
+        renderer.drawLabel(title);
+    }
 }
 
-void Combat::setOpponent(NPC * npc) {
-	this->opponent = npc;
+void Combat::setOpponent(NPC* npc)
+{
+    this->opponent = npc;
 }
 
-void Combat::determineVictor(StateManager& StateManager) {
-	// if both the monsters & players health is more than 0
-	if(player->getStats().Health > 0 && opponent->getStats().Health > 0) {
-		// take turns in removing strength from health
-		if(playersTurn) {
-			int damage = rand() % (player->getStats().Strength - 1) + 2;
-			opponent->getStats().Health -= damage;
-		} else {
-			int damage = rand() % (opponent->getStats().Strength - 1) + 2;
-			player->getStats().Health -= damage;
-		}
-	}
+void Combat::determineVictor(StateManager& StateManager)
+{
+    if (playerCharacter->getStats().health > 0 && opponent->getStats().health > 0)
+    {
+        if (playersTurn)
+        {
+            int damage = rand() % (playerCharacter->getStats().strength - 1) + 2;
+            opponent->getStats().health -= damage;
+        }
+        else
+        {
+            int damage = rand() % (opponent->getStats().strength - 1) + 2;
+            playerCharacter->getStats().health -= damage;
+        }
+    }
 
-	// if the player health is below 0
-	if(player->getStats().Health <= 0) {
-		// set it so the player has lossed
-		playerWin = false;
-		// kill the player
-		player->Kill();
-		finish = false;
-	}
+    if (playerCharacter->getStats().health <= 0)
+    {
+        playerWin = false;
+        playerCharacter->Kill();
+        finish = false;
+    }
 
-	// if the monsters health is below 0
-	if(opponent->getStats().Health <= 0) {
-		int temp = previousHealth - player->getStats().Health;
-		player->getStats().Health += ceil((float)temp/2); 
-		opponent->DropItem(player);
-		opponent->Kill();
-		playerWin = true;
-		finish = false;
-	}
+    if (opponent->getStats().health <= 0)
+    {
+        int temp = previousHealth - playerCharacter->getStats().health;
+        playerCharacter->getStats().health += ceil((float)temp / 2);
+        opponent->dropItem(playerCharacter);
+        opponent->Kill();
+        playerWin = true;
+        finish = false;
+    }
 
-	playersTurn = !playersTurn;
+    playersTurn = !playersTurn;
 }
 
-void Combat::firstHit() {
-	// make sure that the faster character hits first
-	if(player->getStats().Speed < opponent->getStats().Speed) {
-		int damage = rand() % (opponent->getStats().Strength - 1) + 2;
-		player->getStats().Health -= damage;
-		playersTurn = true;
-	} else if(player->getStats().Speed > opponent->getStats().Speed) {
-		int damage = rand() % (player->getStats().Strength - 1) + 2;
-		opponent->getStats().Health -= damage;
-		playersTurn = false;
-	} else {
-		// if the speed is the same pick one at random
-		switch (rand() % 2) {
-			case 0: {
-				opponent->getStats().Health -= rand() % (player->getStats().Strength - 1) + 2; 
-				playersTurn = true; 
-				break;
-			}
+void Combat::firstHit()
+{
+    if (playerCharacter->getStats().speed < opponent->getStats().speed)
+    {
+        int damage = rand() % (opponent->getStats().strength - 1) + 2;
+        playerCharacter->getStats().health -= damage;
+        playersTurn = true;
+    }
+    else if (playerCharacter->getStats().speed > opponent->getStats().speed)
+    {
+        int damage = rand() % (playerCharacter->getStats().strength - 1) + 2;
+        opponent->getStats().health -= damage;
+        playersTurn = false;
+    }
+    else
+    {
+        switch (rand() % 2)
+        {
+            case 0:
+            {
+                opponent->getStats().health -= rand() % (playerCharacter->getStats().strength - 1) + 2;
+                playersTurn = true;
+                break;
+            }
 
-			case 1: {
-				player->getStats().Health -= rand() % (opponent->getStats().Strength - 1) + 2; 
-				playersTurn = false; 
-				break;
-			}
-		}
-	}
+            case 1: 
+            {
+                playerCharacter->getStats().health -= rand() % (opponent->getStats().strength - 1) + 2;
+                playersTurn = false;
+                break;
+            }
+        }
+    }
 }
 
-void Combat::onUpdate(StateManager& StateManager) {
-	if(firsthit) {
-		firsthit = false;
-		finish = true;
-		firstHit();
-	} 
-	
-	// after first hit just determine the victor
-	if(finish) {
-		determineVictor(StateManager);
-	}
+void Combat::onUpdate(StateManager& StateManager)
+{
+    if (firsthit)
+    {
+        firsthit = false;
+        finish = true;
+        firstHit();
+    }
+
+    if (finish)
+    {
+        determineVictor(StateManager);
+    }
 }

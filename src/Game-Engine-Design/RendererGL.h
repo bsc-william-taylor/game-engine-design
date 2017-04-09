@@ -25,7 +25,6 @@ public:
 
     void backgroundColour(float, float, float, float);
     void drawCharacterVector(vector<Character*>&);
-    void drawDharacterWithStats(Character *);
     void drawLabelArray(Label*[], int, int);
     void drawItemVector(vector<Item *>&);
     void drawLabelArray(Label*[], int);

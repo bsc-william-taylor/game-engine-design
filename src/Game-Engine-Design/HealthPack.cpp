@@ -1,41 +1,31 @@
 
-/* ------------------------------------------------
-
-	@File		: HealthPack.cpp
-	@Date		: 21/11/2013
-	@Purpose	:
-
-		Class implementation
-
- ------------------------------------------------ */
-
 #include "HealthPack.h"
 
-// Constructor & Deconstructor
-HealthPack::HealthPack(ItemFile * file) : Item(file){
-	// Nothing to create Item constructor does it
-	// for us
+HealthPack::HealthPack(ItemFile * file) : Item(file)
+{
 }
 
-HealthPack::HealthPack() {
-	// Nothing to create Item constructor does it
-	// for us
+HealthPack::HealthPack()
+{
 }
 
-HealthPack::~HealthPack() {
-	// Nothing to delete
+HealthPack::~HealthPack()
+{
 }
 
-// Functions
-void HealthPack::onConsume(Player * player) {
-	PlayerStats& stats = player->getStats();
-	
-	if(stats.Health < stats.StartHealth) {
-		stats.Health = stats.StartHealth;
-	} else {
-		stats.Health++;
-	}
+void HealthPack::onConsume(Player * playerCharacter)
+{
+    PlayerStats& stats = playerCharacter->getStats();
 
-	turnOffObservers();
-	used = true;
+    if (stats.health < stats.startHealth)
+    {
+        stats.health = stats.startHealth;
+    }
+    else
+    {
+        stats.health++;
+    }
+
+    turnOffObservers();
+    used = true;
 }

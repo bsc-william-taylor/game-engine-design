@@ -1,16 +1,4 @@
 
-/* ------------------------------------------------
-
-	@File		: Combat.h
-	@Date		: 08/11/2013
-	@Purpose	:
-		
-		The following the a class that
-		represents the combat state where
-		the player combats the monster
-
- ------------------------------------------------ */
-
 #pragma once
 
 #include "StateManager.h"
@@ -18,34 +6,29 @@
 #include "States.h"
 #include "State.h"
 
-class Combat : public State {
-	private:
+class Combat : public State
+{
+    Vector<int> monsterPos;
+    Vector<int> playerPos;
 
-		Vector<int> monsterPos;
-		Vector<int> playerPos;
+    Player* playerCharacter;
+    Label* title;
+    NPC* opponent;
 
-		Player * player;
-		Label * Title;
-		NPC * opponent;
+    bool playersTurn, firsthit, finish;
+    int previousHealth;
+    int playerWin;
+public:
+    Combat(Factory *);
+    ~Combat();
 
-		void determineVictor(StateManager&);
-		void firstHit();
+    void onEvent(StateManager&, SDL_Event&);
+    void onDraw(Renderer&, StateManager&);
+    void onUpdate(StateManager&);
+    void onEnter(StateManager&);
+    void onExit(StateManager&);
 
-		bool playersTurn, firsthit, finish;
-		int previousHealth;
-		int playerWin;
-
-	public:
-
-	Combat(Factory *);
-
-		void onEvent(StateManager&, SDL_Event&);
-		void onDraw(Renderer&, StateManager&);
-		void onUpdate(StateManager&);
-		void onEnter(StateManager&);
-		void onExit(StateManager&);
-
-		void setOpponent(NPC *);
-
-	~Combat();
+    void determineVictor(StateManager&);
+    void setOpponent(NPC *);
+    void firstHit();
 };

@@ -32,13 +32,13 @@ MonsterFile::~MonsterFile()
 MonsterStats MonsterFile::getStats(int num)
 {
     MonsterStats stats;
-    stats.StartHealth = atoi(file->grabData()[num + START_HEALTH].c_str());
-    stats.DropChance = atoi(file->grabData()[num + DROP_CHANCE].c_str());
-    stats.Strength = atoi(file->grabData()[num + STRENGTH].c_str());
-    stats.Health = atoi(file->grabData()[num + HEALTH].c_str());
-    stats.Speed = atoi(file->grabData()[num + SPEED].c_str());
-    stats.Cash = atoi(file->grabData()[num + CASH].c_str());
-    stats.Dead = atoi(file->grabData()[num + DEAD].c_str());
+    stats.startHealth = atoi(file->grabData()[num + START_HEALTH].c_str());
+    stats.dropChance = atoi(file->grabData()[num + DROP_CHANCE].c_str());
+    stats.strength = atoi(file->grabData()[num + STRENGTH].c_str());
+    stats.health = atoi(file->grabData()[num + HEALTH].c_str());
+    stats.speed = atoi(file->grabData()[num + SPEED].c_str());
+    stats.cash = atoi(file->grabData()[num + CASH].c_str());
+    stats.dead = atoi(file->grabData()[num + DEAD].c_str());
     return stats;
 }
 
@@ -64,13 +64,13 @@ void MonsterFile::setPosition(int num, Vector<int> position)
 
 void MonsterFile::setStats(int num, MonsterStats stats)
 {
-    file->grabData()[num + START_HEALTH] = to_string(stats.StartHealth).append(" // Start Health");
-    file->grabData()[num + DROP_CHANCE] = to_string(stats.DropChance).append(" // Drop Chance");
-    file->grabData()[num + STRENGTH] = to_string(stats.Strength).append(" // Strength");
-    file->grabData()[num + HEALTH] = to_string(stats.Health).append(" // Health");
-    file->grabData()[num + SPEED] = to_string(stats.Speed).append(" // Speed");
-    file->grabData()[num + CASH] = to_string(stats.Cash).append(" // Cash");
-    file->grabData()[num + DEAD] = to_string(stats.Dead).append(" // Dead");
+    file->grabData()[num + START_HEALTH] = to_string(stats.startHealth).append(" // Start Health");
+    file->grabData()[num + DROP_CHANCE] = to_string(stats.dropChance).append(" // Drop Chance");
+    file->grabData()[num + STRENGTH] = to_string(stats.strength).append(" // Strength");
+    file->grabData()[num + HEALTH] = to_string(stats.health).append(" // Health");
+    file->grabData()[num + SPEED] = to_string(stats.speed).append(" // Speed");
+    file->grabData()[num + CASH] = to_string(stats.cash).append(" // Cash");
+    file->grabData()[num + DEAD] = to_string(stats.dead).append(" // Dead");
 }
 
 Character * MonsterFile::getCharacter(int num)

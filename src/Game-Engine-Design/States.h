@@ -1,21 +1,7 @@
 
-/* ------------------------------------------------
-
-	@File		: States.h
-	@Date		: 08/11/2013
-	@Purpose	:
-
-		This is a include file that has some
-		globals declared so that switching 
-		states is easier and includes all 
-		states if this file is included
-
- ------------------------------------------------ */
-
 #pragma once
 
-// States Declarations
-#include "CharecterSelection.h"
+#include "CharacterSelection.h"
 #include "SplashScreen.h"
 #include "ShopState.h"
 #include "MainMenu.h"
@@ -24,14 +10,14 @@
 #include "Combat.h"
 #include "Map.h"
 
-// Identifiers for states
-enum : unsigned int {
-	g_CharacterSelection = 5,
-	g_SplashScreen = 0,
-	g_GameOver = 7,
-	g_Credits = 2,
-	g_Battle = 6,
-	g_Store = 4,
-	g_Menu = 1,
-	g_Map = 3
+enum ScenesEnum
+{
+	CharacterSelectionScene = 5,
+	SplashScreenScene = 0,
+	GameOverScene = 7,
+	CreditsScene = 2,
+	BattleScene = 6,
+	StoreScene = 4,
+	MenuScene = 1,
+	MapScene = 3
 };

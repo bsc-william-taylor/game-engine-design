@@ -1,99 +1,82 @@
 
-/* ------------------------------------------------
-
-	@File		: Player.cpp
-	@Date		: 21/11/2013
-	@Purpose	:
-
-		This is the players class, and it has 
-		its own stats, and a some functions
-		for moving the player around the map.
-
- ------------------------------------------------ */
-
 #include "PlayerFile.h"
 #include "Player.h"
 
-// Constructor & Deconstructor
-Player::Player(PlayerFile * file) : Character() {
-	this->playerfile = file;
-	Load();
+Player::Player(PlayerFile * file) : Character()
+{
+    this->playerfile = file;
+    load();
 }
 
-Player::~Player() {
-	// nothing to delete
+Player::~Player()
+{
 }
 
-// Functions
-void Player::Reset() {
-	// Reset stats by getting the starting stats
-	int x = playerfile->getStart().getX();
-	int y = playerfile->getStart().getY();
+void Player::reset()
+{
+    int x = playerfile->getStart().getX();
+    int y = playerfile->getStart().getY();
 
-	playerStats = playerfile->getStats();
+    playerStats = playerfile->getStats();
+    playerStats.strength = playerStats.StartStrength;
+    playerStats.health = playerStats.startHealth;
+    playerStats.speed = playerStats.StartSpeed;
+    playerStats.cash = 0;
+    playerStats.dead = 0;
 
-	// and set the to the current stats
-	playerStats.Strength = playerStats.StartStrength;
-	playerStats.Health = playerStats.StartHealth;
-	playerStats.Speed = playerStats.StartSpeed;
-	playerStats.Cash = 0;
-	playerStats.Dead = 0;
+    playerfile->setPosition(Vector<int>(x, y));
+    playerfile->setStats(playerStats);
+    playerfile->push();
 
-	playerfile->setPosition(Vector<int>(x, y));
-	playerfile->setStats(playerStats);
-	playerfile->push();
-
-	turnOnObservers();
+    turnOnObservers();
 }
 
-void Player::Load() {
-	// load the players name as a label
-	text.TextToTexture(playerfile->getName());
+void Player::load()
+{
+    text.textToTexture(playerfile->getName());
 
-	// set position
-	int x = playerfile->getPosition().getX();
-	int y = playerfile->getPosition().getY();
-	int w = playerfile->getSize().getX();
-	int h = playerfile->getSize().getY();
+    int x = playerfile->getPosition().getX();
+    int y = playerfile->getPosition().getY();
+    int w = playerfile->getSize().getX();
+    int h = playerfile->getSize().getY();
 
-	// & get stats
-	playerStats = playerfile->getStats();
-	colour = playerfile->getColour();
+    playerStats = playerfile->getStats();
+    colour = playerfile->getColour();
 
-	setPosition(Vector<int>(x, y));
-	setSize(Vector<int>(w, h));
+    setPosition(Vector<int>(x, y));
+    setSize(Vector<int>(w, h));
 }
 
-void Player::Save() {
-	Vector<int> position = getPosition();
-
-	// save current position
-	playerfile->setPosition(position);
-	playerfile->setStats(playerStats);
-
-	// push changes to the file
-	playerfile->push();
+void Player::save()
+{
+    Vector<int> position = getPosition();
+    playerfile->setPosition(position);
+    playerfile->setStats(playerStats);
+    playerfile->push();
 }
 
-void Player::Kill() {
-	// change the stats to show that the player is dead
-	playerStats.Dead = true;
-	// & turn off observers
-	turnOffObservers();
+void Player::Kill()
+{
+    playerStats.dead = true;
+    turnOffObservers();
 }
 
-void Player::moveX(int x) {
-	position.set(position.getX() + x, position.getY());
-	// notify observers is the player is moving
-	if(!playerStats.Dead) {
-		notify();
-	}
+void Player::moveX(int x)
+{
+    position.set(position.getX() + x, position.getY());
+
+    if (!playerStats.dead)
+    {
+        notify();
+    }
 }
 
-void Player::moveY(int y) {
-	position.set(position.getX(), position.getY() + y);
-	// notify observers is the player is moving
-	if(!playerStats.Dead) {
-		notify();
-	}
+void Player::moveY(int y)
+{
+    position.set(position.getX(), position.getY() + y);
+
+    if (!playerStats.dead)
+    {
+        notify();
+    }
 }

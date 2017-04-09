@@ -1,63 +1,50 @@
 
-/* ------------------------------------------------
-
-	@File		: Credits.cpp
-	@Date		: 08/11/2013
-	@Purpose	:
-		
-		Class implementation
-
- ------------------------------------------------ */
-
 #include "Credits.h"
 
-// Constructor & Deconstructor
-Credits::Credits(Factory * renderList) {
-	// Init the timer
-	timer = new Timer();
+Credits::Credits(Factory * renderList)
+{
+    publisherName = renderList->getObject<Label>("publisherText");
+    studioName = renderList->getObject<Label>("studioText");
 
-	// get objects as they have already been created by this point
-	publisherName = renderList->getObject<Label>("publisherText");
-	studioName = renderList->getObject<Label>("studioText");
-
-	// and create a new object which represents my name
-	myName = renderList->newObject<Label>("myName");
-	myName->SetText("Data/MavenPro-Regular.ttf", 20);
-	myName->TextToTexture(file->getCreatorName());
-	myName->setPosition(Vector<int>(10, 10));
+    myName = renderList->newObject<Label>("myName");
+    myName->setText("Data/MavenPro-Regular.ttf", 20);
+    myName->textToTexture(file->getCreatorName());
+    myName->setPosition(Vector<int>(10, 10));
 }
 
-Credits::~Credits() {
-	delete timer;
+Credits::~Credits()
+{
 }
 
-// Functions
-void Credits::onDraw(Renderer& renderer, StateManager& states) {
-	renderer.clearScreen();
-	renderer.backgroundColour(0.0, 0.0, 0.5, 0.0);
-	renderer.drawLabel(publisherName);
-	renderer.drawLabel(studioName);
-	renderer.drawLabel(myName);
+void Credits::onDraw(Renderer& renderer, StateManager& states)
+{
+    renderer.clearScreen();
+    renderer.backgroundColour(0.0, 0.0, 0.5, 0.0);
+    renderer.drawLabel(publisherName);
+    renderer.drawLabel(studioName);
+    renderer.drawLabel(myName);
 }
 
-void Credits::onUpdate(StateManager& states) {
-	// after 30 seconds go to the main menu
-	if(timer->waitFor(30)){
-		states.switchState(g_Menu);
-	}
+void Credits::onUpdate(StateManager& states)
+{
+    if (timer.waitFor(30))
+    {
+        states.switchState(MenuScene);
+    }
 }
 
-void Credits::onEvent(StateManager& states, SDL_Event& event) {
-	if(event.type == SDL_KEYDOWN) {
-		states.switchState(1);
-	}
+void Credits::onEvent(StateManager& states, SDL_Event& event)
+{
+    if (event.type == SDL_KEYDOWN)
+    {
+        states.switchState(1);
+    }
 }
 
-// Empty Functions
-void Credits::onEnter(StateManager&) {
-	// nothing needs to be set
+void Credits::onEnter(StateManager&)
+{
 }
 
-void Credits::onExit(StateManager&) {
-	// or reset
+void Credits::onExit(StateManager&)
+{
 }

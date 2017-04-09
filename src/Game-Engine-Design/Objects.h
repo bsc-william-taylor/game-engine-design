@@ -1,16 +1,4 @@
 
-/* ------------------------------------------------
-
-	@File		: Objects.h
-	@Date		: 21/11/2013
-	@Purpose	:
-
-		A simple include file that will 
-		include all drawable assets
-		Players, NPC's Items etc.
-
- ------------------------------------------------ */
-
 #pragma once
 
 #include "StimulantPack.h"

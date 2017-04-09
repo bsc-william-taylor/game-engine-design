@@ -94,7 +94,7 @@ xcopy /Y /I $(ProjectDir)Data $(OutDir)\Data</Command>
     <ClCompile Include="GameFile.cpp" />
     <ClCompile Include="Border.cpp" />
     <ClCompile Include="Character.cpp" />
-    <ClCompile Include="CharecterSelection.cpp" />
+    <ClCompile Include="CharacterSelection.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Combat.cpp" />
     <ClCompile Include="CombatPack.cpp" />
@@ -128,7 +128,7 @@ xcopy /Y /I $(ProjectDir)Data $(OutDir)\Data</Command>
     <ClInclude Include="GameFile.h" />
     <ClInclude Include="Border.h" />
     <ClInclude Include="Character.h" />
-    <ClInclude Include="CharecterSelection.h" />
+    <ClInclude Include="CharacterSelection.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Combat.h" />
     <ClInclude Include="CombatPack.h" />

@@ -1,13 +1,13 @@
 
 /* ------------------------------------------------
 
-	@File		: Item.h
-	@Date		: 21/11/2013
-	@Purpose	:
+    @File		: Item.h
+    @Date		: 21/11/2013
+    @Purpose	:
 
-		A base class which items must inherit
-		& define what should happen the player
-		consumes the item on contact
+        A base class which items must inherit
+        & define what should happen the player
+        consumes the item on contact
 
  ------------------------------------------------ */
 
@@ -18,30 +18,27 @@
 class ItemFile;
 class Player;
 
-class Item : public Object  {
-	protected:
+class Item : public Object 
+{
+protected:
+    ItemFile * file;
+    Colour colour;
+    bool used;
+    int num;
+public:
+    Item(ItemFile *);
+    Item();
+    ~Item();
 
-		ItemFile * file;
-		Colour colour;
-		bool used;
-		int num;
+    virtual void onConsume(Player *) = 0;
 
-	public:
+    void setColour(float, float, float);
+    void setItemNumber(int);
+    void reset();
+    void load();
+    void save();
 
-	Item(ItemFile *);
-	Item();
+    bool isUsed();
 
-		virtual void onConsume(Player *) = 0;
-		
-		void SetColour(float, float, float);
-		void SetItemNumber(int);
-		void Reset();
-		void Load();
-		void Save();
-
-		bool isUsed();
-
-		Colour& getColour();
-
-	~Item();
+    Colour& getColour();
 };

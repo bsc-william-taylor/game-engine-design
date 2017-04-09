@@ -1,53 +1,38 @@
 
-/* ------------------------------------------------
-
-	@File		: Player.h
-	@Date		: 21/11/2013
-	@Purpose	:
-
-		This is the players class, and it has 
-		its own stats, and a some functions
-		for moving the player around the map.
-
- ------------------------------------------------ */
-
 #pragma once
 
 #include "Character.h"
 
-#pragma region Stats Struct
 class PlayerFile;
-struct PlayerStats  {
-	int StartHealth;
-	int StartStrength;
-	int StartSpeed;
-	int Strength;
-	int Health;
-	int Speed; 
-	int Cash;
-	int Dead;
+
+struct PlayerStats 
+{
+    int startHealth;
+    int StartStrength;
+    int StartSpeed;
+    int strength;
+    int health;
+    int speed;
+    int cash;
+    int dead;
 };
-#pragma endregion
 
-class Player : public Character {
-	private:
+class Player : public Character 
+{
+    PlayerStats playerStats;
+    PlayerFile* playerfile;
+public:
+    Player(PlayerFile *);
+    ~Player();
 
-		PlayerStats playerStats;
-		PlayerFile* playerfile;
+    void moveX(int);
+    void moveY(int);
 
-	public:
+    PlayerStats& getStats() { return playerStats; }
 
-	Player(PlayerFile *);
-
-		void moveX(int);
-		void moveY(int);
-
-		PlayerStats& getStats(){ return playerStats; }
-		bool isKilled(){ return playerStats.Dead; }
-		void Reset();
-		void Load();
-		void Save();
-		void Kill();
-
-	~Player();
+    bool isKilled() { return playerStats.dead; }
+    void reset();
+    void load();
+    void save();
+    void Kill();
 };

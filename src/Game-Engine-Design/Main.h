@@ -24,7 +24,10 @@
 #pragma comment(lib, "SDL2_ttf.lib")
 #pragma comment(lib, "glu32.lib")
 #pragma comment(lib, "SDL2.lib")
+
 #pragma warning(disable : 4800)
+#pragma warning(disable : 4018)
+#pragma warning(disable : 4244)
 
 typedef const char * cstring;
 

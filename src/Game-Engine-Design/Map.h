@@ -1,17 +1,4 @@
 
-/* ------------------------------------------------
-
-	@File		: Map.h
-	@Date		: 08/11/2013
-	@Purpose	:
-
-		This class is the main level state &
-		thats why there are a lot of data
-		members, it acts as the map that the
-		user can walk around and interact
-		with
-		
- ------------------------------------------------ */
 
 #pragma once
 
@@ -22,37 +9,30 @@
 #include "Vector.h"
 #include "States.h"
 
-class Map : public State {
-	private:
+class Map : public State
+{
+    vector<Collision *> enemyCollisions;
+    vector<Collision *> itemCollisions;
+    vector<Character *> enemies;
+    vector<Item *> items;
 
-		// Observers
-		vector<Collision *> EnemyCollision;
-		vector<Collision *> ItemCollision;
-		Collision * StoreCollision;
-		Border * BorderCollision;
+    Character* playerCharacter;
+    Collision* storeCollision;
+    Border* borderCollision;
+    Shop* store;
 
-		// NPC's & Items
-		vector<Character *> Enemys;
-		vector<Item *> Items;
-		Character * player;
-		Shop * store;
+    int monstersAlive;
+public:
+    Map(Factory *);
+    ~Map();
 
-		int monstersAlive;
+    void onEvent(StateManager&, SDL_Event&);
+    void onDraw(Renderer&, StateManager&);
+    void onUpdate(StateManager&);
+    void onEnter(StateManager&);
+    void onExit(StateManager&);
 
-	public:
-
-	Map(Factory *);
-		
-		void onEvent(StateManager&, SDL_Event&);
-		void onDraw(Renderer&, StateManager&);
-		void onUpdate(StateManager&);
-		void onEnter(StateManager&);
-		void onExit(StateManager&);
-
-		void InitialiseEnemys();
-		void InitialiseItems();
-		void ResetMap();
-
-	~Map();
-
+    void initialiseEnemies();
+    void initialiseItems();
+    void resetMap();
 };

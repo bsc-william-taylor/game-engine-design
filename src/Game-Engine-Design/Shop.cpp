@@ -1,33 +1,23 @@
 
-/* ------------------------------------------------
-
-	@File		: Shop.cp
-	@Date		: 21/11/2013
-	@Purpose	:
-
-		Class implementation
-
- ------------------------------------------------ */
-
 #include "Shop.h"
 
+Shop::Shop() 
+{
+    position = Vector<int>(0, 0);
+    size = Vector<int>(10, 10);
 
-// Constructor & Deconstructor
-Shop::Shop() {
-	position = Vector<int>(0, 0);
-	size = Vector<int>(10, 10);
-
-	shopText = new Label();
-	shopText->SetText("Data/MavenPro-Regular.ttf", 15);
-	shopText->TextToTexture("Store");
-	shopText->setPosition(Vector<int>(position.getX(), position.getY()));
+    shopText = new Label();
+    shopText->setText("Data/MavenPro-Regular.ttf", 15);
+    shopText->textToTexture("Store");
+    shopText->setPosition(Vector<int>(position.getX(), position.getY()));
 }
 
-Shop::~Shop() {
-	delete shopText;
+Shop::~Shop() 
+{
+    delete shopText;
 }
 
-// Functions
-Label * Shop::getLabel() { 
-	return shopText;
+Label * Shop::getLabel() 
+{
+    return shopText;
 }
